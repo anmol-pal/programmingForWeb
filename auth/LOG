@@ -1,0 +1,82 @@
+# edited annotated log
+
+# usage
+$ ./index.mjs 
+usage: index.mjs DB_URL (register|login|get|query|update|remove|clear) \
+       PARAMS_JSON
+
+# register with JSON syntax error
+$ ./index.mjs mongodb://localhost:27017/auth register \
+    '{"loginId": "zdu", "firstName": "zerksis", "lastName": "umrigar", }'
+bad data json {"loginId":...  };  Unexpected token } in JSON at position 66
+
+# register missing password
+$ ./index.mjs mongodb://localhost:27017/auth register \
+  '{"loginId": "zdu", "firstName": "zerksis", "lastName": "umrigar" }'
+missing value for password
+
+# register not sufficiently strong password
+$ ./index.mjs mongodb://localhost:27017/auth register \
+  '{"loginId": "zdu", "firstName": "zerksis", "lastName": "umrigar",
+     "password": "abcd1234" }'
+ password must contain a one-or-more lowercase and
+ uppercase alphabetic characters, a digit and a special character. 
+
+# success!!
+$ ./index.mjs mongodb://localhost:27017/auth register \
+    '{"loginId": "zdu", "firstName": "zerksis", "lastName": "umrigar",
+      "password": "Abcd1234!" }'
+{
+  userId: '1_96',
+  passwordHash: '$2b$10$ms87NZCP1KuHkqVHHnSXfuVT46MN8wiT84besYWGk7WMdZtM80ArK',
+  loginId: 'zdu',
+  firstName: 'zerksis',
+  lastName: 'umrigar'
+}
+
+# login
+$ ./index.mjs mongodb://localhost:27017/auth login \
+     '{"loginId": "zdu", "password": "Abcd1234!" }'
+{
+  passwordHash: '$2b$10$ms87NZCP1KuHkqVHHnSXfuVT46MN8wiT84besYWGk7WMdZtM80ArK',
+  loginId: 'zdu',
+  firstName: 'zerksis',
+  lastName: 'umrigar',
+  userId: '1_96'
+}
+
+# access user
+$ ./index.mjs mongodb://localhost:27017/auth get '{"userId": "1_96" }'
+{
+  userId: '1_96',
+  passwordHash: '$2b$10$ms87NZCP1KuHkqVHHnSXfuVT46MN8wiT84besYWGk7WMdZtM80ArK',
+  loginId: 'zdu',
+  firstName: 'zerksis',
+  lastName: 'umrigar'
+}
+
+# not allowed to update _id
+$ ./index.mjs mongodb://localhost:27017/auth update \
+              '{"userId": "1_96", "_id": 123 }'
+_id cannot be updated
+
+# upcase firstName
+$ ./index.mjs mongodb://localhost:27017/auth update \
+              '{"userId": "1_96", "firstName": "Zerksis" }'
+{
+  passwordHash: '$2b$10$ms87NZCP1KuHkqVHHnSXfuVT46MN8wiT84besYWGk7WMdZtM80ArK',
+  loginId: 'zdu',
+  firstName: 'Zerksis',
+  lastName: 'umrigar',
+  userId: '1_96'
+}
+
+# remove user
+$ ./index.mjs mongodb://localhost:27017/auth remove '{"userId": "1_96" }'
+undefined
+
+# no longer able to login
+$ ./index.mjs mongodb://localhost:27017/auth login
+              '{"loginId": "zdu", "password": "Abcd1234!" }'
+invalid login
+$ 
