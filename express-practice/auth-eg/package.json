@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "devStart": "nodemon server.js",
     "clean": "shx rm -rf dist",
     "build": "tsc",
     "watch": "tsc --watch",
