@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Basic input forms</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">    
+    </head>
+    <body>
+        <table id="day-pressures">
+            <tr>
+              <th class="time">Time</th>
+          <th class="mercury">Mercury (Inches)</th>
+          <th class="psi">PSI</th>
+            </tr>
+            <tr class="morning">
+              <td class="time">08:00</td>
+          <td class="mercury">29.921 in</td>
+          <td class="psi">14.696 psi</td>
+            </tr>
+            <tr class="afternoon">
+              <td class="time">13:00</td>
+          <td class="mercury">30.12 in </td>
+          <td class="psi">14.793 psi</td>
+            </tr>
+            <tr class="evening">
+              <td class="time">18:00</td>
+          <td class="mercury">30.164 in</td>
+          <td class="psi">14.815 psi</td>
+            </tr>
+          </table>
+          <form action="scriptfiles.html" method="GET">
+            <label>Enter Class Name</label>
+            <input type="text" name="classname" id="classname" required>
+            <button>Submit</button>
+          </form>
+        <script src="scriptfiles.js"> </script>          
+    </body>
+</html>
