@@ -14,25 +14,144 @@
             </tr>
             <tr class="morning">
               <td class="time">08:00</td>
-          <td class="mercury">29.921 in</td>
-          <td class="psi">14.696 psi</td>
+              <td class="mercury">29.921 in</td>
+              <td class="psi">14.696 psi</td>
             </tr>
             <tr class="afternoon">
               <td class="time">13:00</td>
-          <td class="mercury">30.12 in </td>
-          <td class="psi">14.793 psi</td>
+              <td class="mercury">30.12 in </td>
+              <td class="psi">14.793 psi</td>
             </tr>
             <tr class="evening">
               <td class="time">18:00</td>
-          <td class="mercury">30.164 in</td>
-          <td class="psi">14.815 psi</td>
+              <td class="mercury">30.164 in</td>
+              <td class="psi">14.815 psi</td>
             </tr>
           </table>
-          <form action="scriptfiles.html" method="GET">
-            <label>Enter Class Name</label>
-            <input type="text" name="classname" id="classname" required>
-            <button>Submit</button>
-          </form>
-        <script src="scriptfiles.js"> </script>          
+          <div>
+          </div>  
+          <form action="simplescript.html" method="GET">
+            <div>
+              <label for="classname">Enter Class Name</label>
+              <input type="text" name="classname" id="classname" required>  
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" required></label>
+            </div>
+            <div>
+              <label for="age">Age</label>
+              <input type="number" name="age" id="age" min="1" max="20" step="1">
+            </div>
+            <div>
+              <label for="date"> Birth Date</label>
+              <input type="date" name="date" id="date" min="2019-01-01">
+            </div>
+            <div>
+              Fav Food - checkboxes , multiple choices
+              <div>
+                <label for="banana">Banana</label>
+                <input type="checkbox" name="banana" id="banana"></input>
+              </div>
+              <div>              
+                <label for="applpe">Apple</label>
+                <input type="checkbox" name="applpe" id="applpe"></input>
+              </div>  
+            </div>
+            <div>
+              Radio Buttons , single choice
+              <div>
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="male" value="male">
+              </div>
+              <div>
+                <label for="female">Female</label>
+                <input type="radio" name="gender" id="female" value="female">
+              </div>
+            </div>
+            <div>
+              <label for="colors">Colors</label>
+              <select name="colors" id="colors">
+                <option value="Green"> Green </option>
+                <option value="Blue"> Blue </option>
+                <option value="Pink"> Pink </option>
+                </option>
+              </select>
+            </div>
+            <div>
+              <label for="bio">Bio</label>
+              <textarea id="bio"></textarea>
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input  type="tel" id="phone">
+            </div>
+            <div>
+              <label for="url">URL</label>
+              <input  type="url" id="url">
+            </div>
+            <br>
+          <div>
+            <label for="color">Color</label>
+            <input  type="color" id="color">
+          </div>
+            <br>
+          <div>
+            <label for="spclchild">Special Needs Children</label>
+            <input  type="number" name="spclchild" id="spclchild" min="0" max="100" step=".01">
+          </div>            
+          <div>
+            <label for="arriveAt">Book Uber for</label>
+            <input  type="datetime-local" name="arriveAt" id="arriveAt">
+          </div>
+          <br>
+          <div>
+            <label for="borough">Select New York Boroughs</label>
+            <select name="borough" id="borough">
+                <option value="bronx" name="bronx" id="borough">Bronx</option>
+                <option value="brooklyn" name="brooklyn" id="borough">Brooklyn</option>
+                <option value="manhattan" name="manhattan" id="borough">Manhattan</option>
+                <option value="queens" name="queens" id="borough">Queens</option>
+                <option value="staten_island" name="staten_island" id="borough">Staten Island</option>
+            </select>
+          </div>
+          <div>
+            <label for="borough">Enter New York Boroughs</label>
+            <input type="text" id="borough" name="borough">
+          </div>
+            <label for="borough">Enter New York Boroughs</label>
+            <br>
+            <input type="checkbox" name="bronx" id="bronx">Bronx</input>
+            <input type="checkbox" name="brooklyn" id="brooklyn">Brooklyn</input>
+            <input type="checkbox" name="manhattan" id="manhattan">Manhattan</input>
+            <input type="checkbox" name="queens" id="queens">Queens</input>
+            <input type="checkbox" name="staten_island" id="staten_island">Staten Island</input>
+          <div>
+          </div>
+          <div>
+          <label for="borough">Enter New York Boroughs</label>
+          <br>
+            <input type="radio" id="bronx" name="borough">Bronx</input>
+            <input type="radio" id="brooklyn" name="borough">Brooklyn</input>
+            <input type="radio" id="manhattan" name="borough">Manhattan</input>
+            <input type="radio" id="queens" name="borough">Queens</input>
+            <input type="radio" id="staten_island" name="borough">Staten Island</input>
+          </div>
+          <div>
+            <label for="color-mixer">Mix colors:</label>
+            <input type="range" id="red" name="red" min="0" max="255" step="1">
+            <input type="range" id="green" name="green" min="0" max="255" step="1">
+            <input type="range" id="blue" name="blue" min="0" max="255" step="1">
+            <div id="color-preview"></div>
+        </div>
+
+        <!-- Validation using regex -->
+        <div>
+          <label for ></label>
+        </div>
+        <button type="reset">RESET</button>
+        <button type="submit">Submit</button>
+</form>
+        <script src="simplescript.html"> </script>
     </body>
 </html>
